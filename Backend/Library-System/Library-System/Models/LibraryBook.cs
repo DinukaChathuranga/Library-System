@@ -11,6 +11,7 @@ namespace Library_System.Models
         [StringLength(255)]
         public string Name { get; set; }
 
+        public string Author { get; set; }
         public string Description { get; set; }
 
         public DateTime AddedDate { get; set; }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Dinuk\\source\\repos\\Library-System\\Library-System\\Library-System.csproj": {}
+    "C:\\Users\\Dinuk\\OneDrive\\Desktop\\My Projects\\Library-System\\Backend\\Library-System\\Library-System\\Library-System.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Dinuk\\source\\repos\\Library-System\\Library-System\\Library-System.csproj": {
+    "C:\\Users\\Dinuk\\OneDrive\\Desktop\\My Projects\\Library-System\\Backend\\Library-System\\Library-System\\Library-System.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Dinuk\\source\\repos\\Library-System\\Library-System\\Library-System.csproj",
+        "projectUniqueName": "C:\\Users\\Dinuk\\OneDrive\\Desktop\\My Projects\\Library-System\\Backend\\Library-System\\Library-System\\Library-System.csproj",
         "projectName": "Library-System",
-        "projectPath": "C:\\Users\\Dinuk\\source\\repos\\Library-System\\Library-System\\Library-System.csproj",
+        "projectPath": "C:\\Users\\Dinuk\\OneDrive\\Desktop\\My Projects\\Library-System\\Backend\\Library-System\\Library-System\\Library-System.csproj",
         "packagesPath": "C:\\Users\\Dinuk\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Dinuk\\source\\repos\\Library-System\\Library-System\\obj\\",
+        "outputPath": "C:\\Users\\Dinuk\\OneDrive\\Desktop\\My Projects\\Library-System\\Backend\\Library-System\\Library-System\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -50,6 +50,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.AspNet.WebApi.Core": {
+              "target": "Package",
+              "version": "[5.3.0, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.7, )"
@@ -61,6 +65,12 @@
               "version": "[8.0.7, )"
             },
             "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[8.0.7, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
               "version": "[8.0.7, )"
             },

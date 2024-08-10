@@ -16,8 +16,11 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<LibraryContext>(
         options => options.UseSqlite("name=ConnectionStrings:LocalDb"));
 
-builder.Services.AddScoped<ILibraryBookRepository, LibraryBookRepository>(); // Specific to your project
+builder.Services.AddScoped<ILibraryBookRepository, LibraryBookRepository>(); 
 builder.Services.AddScoped<ILibraryService, LibraryService>();
+
+builder.Services.AddScoped<IUserRepository, UserRepository>(); 
+builder.Services.AddScoped<IUserService, UserService>();
 
 var app = builder.Build();
 

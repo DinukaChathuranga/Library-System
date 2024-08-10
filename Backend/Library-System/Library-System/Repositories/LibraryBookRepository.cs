@@ -51,12 +51,13 @@ namespace Library_System.Repositories
             }
 
             existingBook.Name = book.Name;
+            existingBook.Author = book.Author;
             existingBook.Description = book.Description;
             existingBook.Publisher = book.Publisher;
             existingBook.Edition = book.Edition;
             existingBook.Price = book.Price;
             existingBook.Type = book.Type;
-            existingBook.UserId = book.UserId; // Ensure you update UserId if needed
+            existingBook.UserId = book.UserId;
 
             await _dbContext.SaveChangesAsync();
 
@@ -74,11 +75,6 @@ namespace Library_System.Repositories
 
             _dbContext.Books.Remove(book);
             await _dbContext.SaveChangesAsync();
-        }
-
-        public Task<LibraryBook> UpdateAsync(LibraryBook book)
-        {
-            throw new NotImplementedException();
         }
     }
 }

@@ -24,9 +24,9 @@ namespace Library_System.Services
             return _libraryBookRepository.CreateAsync(book);
         }
 
-        public Task<LibraryBook> UpdateLibraryBook(LibraryBook book)
+        public Task<LibraryBook> UpdateLibraryBook(int id, LibraryBook book)
         {
-            return _libraryBookRepository.UpdateAsync(book);
+            return _libraryBookRepository.UpdateAsync(id, book);
         }
 
         public Task DeleteLibraryBook(int libraryBookId)

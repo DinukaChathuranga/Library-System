@@ -40,7 +40,7 @@ namespace Library_System.Controllers
 
         [HttpPut]
         [Route("update/{bookId}")]
-        public async Task<IActionResult> UpdateBook(int id, [FromBody] LibraryBook book)
+        public async Task<IActionResult> UpdateBook(int bookId, [FromBody] LibraryBook book)
         {
             if (book == null)
             {
@@ -49,11 +49,11 @@ namespace Library_System.Controllers
 
             try
             {
-                var libraryBook = await _libraryService.UpdateLibraryBook(id, book);
+                var libraryBook = await _libraryService.UpdateLibraryBook(bookId, book);
 
                 if (libraryBook == null)
                 {
-                    return NotFound($"Book with ID {id} not found.");
+                    return NotFound($"Book with ID {bookId} not found.");
                 }
 
                 return Ok(libraryBook);
@@ -65,8 +65,7 @@ namespace Library_System.Controllers
             }
         }
 
-
-        [HttpPost]
+        [HttpDelete]
         [Route("delete/{bookId}")]
         public async Task<IActionResult> DeleteBook(int bookId)
         {

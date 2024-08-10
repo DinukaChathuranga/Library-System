@@ -12,6 +12,5 @@ namespace Library_System.Repositories
         Task<LibraryBook> CreateAsync(LibraryBook book);
         Task<LibraryBook> UpdateAsync(int id, LibraryBook book);
         Task DeleteAsync(int libraryBookId);
-        Task<LibraryBook> UpdateAsync(LibraryBook book);
     }
 }
