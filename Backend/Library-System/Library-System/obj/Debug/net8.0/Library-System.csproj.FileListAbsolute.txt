@@ -259,3 +259,11 @@ C:\Users\Dinuk\OneDrive\Desktop\My Projects\Library-System\Backend\Library-Syste
 C:\Users\Dinuk\OneDrive\Desktop\My Projects\Library-System\Backend\Library-System\Library-System\bin\Debug\net8.0\System.Web.Http.dll
 C:\Users\Dinuk\OneDrive\Desktop\My Projects\Library-System\Backend\Library-System\Library-System\bin\Debug\net8.0\Newtonsoft.Json.dll
 C:\Users\Dinuk\OneDrive\Desktop\My Projects\Library-System\Backend\Library-System\Library-System\bin\Debug\net8.0\Newtonsoft.Json.Bson.dll
+C:\Users\Dinuk\OneDrive\Desktop\My Projects\Library-System\Backend\Library-System\Library-System\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Dinuk\OneDrive\Desktop\My Projects\Library-System\Backend\Library-System\Library-System\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\Dinuk\OneDrive\Desktop\My Projects\Library-System\Backend\Library-System\Library-System\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Dinuk\OneDrive\Desktop\My Projects\Library-System\Backend\Library-System\Library-System\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\Dinuk\OneDrive\Desktop\My Projects\Library-System\Backend\Library-System\Library-System\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Dinuk\OneDrive\Desktop\My Projects\Library-System\Backend\Library-System\Library-System\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Dinuk\OneDrive\Desktop\My Projects\Library-System\Backend\Library-System\Library-System\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Dinuk\OneDrive\Desktop\My Projects\Library-System\Backend\Library-System\Library-System\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll

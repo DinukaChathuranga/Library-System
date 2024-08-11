@@ -37,12 +37,13 @@ namespace Library_System.Migrations
                     b.Property<int>("Edition")
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("Imageurl")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(255)
-                        .HasColumnType("TEXT");
-
-                    b.Property<decimal>("Price")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Publisher")
@@ -51,9 +52,6 @@ namespace Library_System.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<int>("Type")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int?>("UserId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");

@@ -27,13 +27,7 @@ namespace Library_System.Repositories
             return await _dbContext.Books.FindAsync(id);
         }
 
-        public async Task<List<LibraryBook>> GetByOwnerAsync(int? ownerId)
-        {
-            return await _dbContext.Books
-                                   .Where(b => b.UserId == ownerId)
-                                   .ToListAsync();
-        }
-
+ 
         public async Task<LibraryBook> CreateAsync(LibraryBook book)
         {
             await _dbContext.Books.AddAsync(book);
@@ -53,11 +47,11 @@ namespace Library_System.Repositories
             existingBook.Name = book.Name;
             existingBook.Author = book.Author;
             existingBook.Description = book.Description;
+            existingBook.Imageurl = book.Imageurl;
             existingBook.Publisher = book.Publisher;
             existingBook.Edition = book.Edition;
-            existingBook.Price = book.Price;
             existingBook.Type = book.Type;
-            existingBook.UserId = book.UserId;
+ 
 
             await _dbContext.SaveChangesAsync();
 

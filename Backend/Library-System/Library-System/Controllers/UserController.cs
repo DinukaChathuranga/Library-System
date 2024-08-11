@@ -24,7 +24,7 @@ namespace Library_System.Controllers
         }
 
         [HttpPost("login")]
-        public async Task<IActionResult> Login(string email, string password)
+        public async Task<IActionResult> Login([FromQuery] string email, [FromQuery] string password)
         {
             var user = await _userService.LoginUserAsync(email, password);
 
@@ -35,6 +35,5 @@ namespace Library_System.Controllers
 
             return Ok(user);
         }
-
     }
 }

@@ -1,6 +1,8 @@
 ﻿using Library_System.Models;
 using Library_System.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Threading.Tasks;
 
 namespace Library_System.Controllers
@@ -22,13 +24,14 @@ namespace Library_System.Controllers
             var books = await _libraryService.GetAllLibraryBooks();
             return Ok(books);
         }
-
+        [Authorize]
         [HttpPost]
         [Route("create")]
         public async Task<IActionResult> CreateBook(LibraryBook book)
         {
             try
             {
+                Console.WriteLine("Badu awa");
                 await _libraryService.CreateLibraryBook(book);
                 return Ok();
             }
@@ -37,7 +40,7 @@ namespace Library_System.Controllers
                 return BadRequest(ex.Message);
             }
         }
-
+        [Authorize]
         [HttpPut]
         [Route("update/{bookId}")]
         public async Task<IActionResult> UpdateBook(int bookId, [FromBody] LibraryBook book)
@@ -59,12 +62,11 @@ namespace Library_System.Controllers
                 return Ok(libraryBook);
             }
             catch (Exception ex)
-            {
-                // Consider logging the exception details here
+            { 
                 return StatusCode(500, "An error occurred while updating the book.");
             }
         }
-
+        [Authorize]
         [HttpDelete]
         [Route("delete/{bookId}")]
         public async Task<IActionResult> DeleteBook(int bookId)

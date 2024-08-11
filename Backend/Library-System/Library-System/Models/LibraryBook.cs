@@ -14,6 +14,8 @@ namespace Library_System.Models
         public string Author { get; set; }
         public string Description { get; set; }
 
+        public string Imageurl { get; set; }
+
         public DateTime AddedDate { get; set; }
 
         public int Edition { get; set; }
@@ -21,12 +23,10 @@ namespace Library_System.Models
         [StringLength(255)]
         public string Publisher { get; set; }
 
-        public decimal Price { get; set; }
 
         [Required]
         public BookType Type { get; set; }    // Navigation Property
 
-        public int? UserId { get; set; }
     }
 }
 

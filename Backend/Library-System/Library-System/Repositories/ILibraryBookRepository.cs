@@ -8,7 +8,6 @@ namespace Library_System.Repositories
     {
         Task<List<LibraryBook>> GetAllAsync();
         Task<LibraryBook> GetByIdAsync(int id);
-        Task<List<LibraryBook>> GetByOwnerAsync(int? ownerId);
         Task<LibraryBook> CreateAsync(LibraryBook book);
         Task<LibraryBook> UpdateAsync(int id, LibraryBook book);
         Task DeleteAsync(int libraryBookId);

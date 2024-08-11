@@ -1,9 +1,36 @@
-
+import { useRef } from "react";
 
 export default function Newbook() {
+  const formRef = useRef(null);
+
+  function btnClicked() {
+    const data = new FormData(formRef.current!);
+
+    const obj = {
+      "name": data.get("title"),
+      "author": data.get("author"),
+      "description": data.get("desc"),
+      "imageurl" : data.get("imageurl"),
+      "edition": data.get("edition"),
+      "publisher": data.get("publisher"),
+      "type": parseInt(data.get("type") as string),
+  
+    }
+
+    console.log(obj);
+
+    fetch("https://localhost:7137/api/LibraryBook/create", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(obj)
+    }).then(_ => console.log("Created"))
+  }
+
   return (
     <>
-      <div className="main-wrapper ">
+      <div className="main-wrapper">
         <section className="page-title bg-1">
           <div className="container">
             <div className="row">
@@ -25,35 +52,51 @@ export default function Newbook() {
           <div className="container">
             <div className="row" style={{ display: 'flex', justifyContent: 'center' }}>
               <div className="col-lg-6 col-md-12 col-sm-12">
-                <form id="contact-form" className="contact__form" method="post" action="mail.php">
-
-
+                <form ref={formRef} id="contact-form" className="contact__form" method="post">
                   <h3 className="text-md mb-4">Add new book</h3>
 
                   <div className="form-group">
-                    <input name="title" type="text" className="form-control" placeholder="Your Book title" />
+                    <input name="title" type="text" className="form-control" placeholder="Book Title" />
                   </div>
 
                   <div className="form-group">
-                    <input type="file" className="form-control" placeholder="Your image" />
+                    <input name="author" type="text" className="form-control" placeholder="Author Name" />
+                  </div>
+                  <p>Add Your book image to this Drive Folder and add Url of the image to this textbox - 
+                  <a href="https://drive.google.com/drive/folders/1-iGmGShxt49gZvJjB4LyYPQKuC2jSv7E?usp=sharing" target="_blank"><u>Add Image</u></a></p>
+                  <div className="form-group">
+                    <input name="imageurl" type="text" className="form-control" placeholder="Image-url" />
                   </div>
 
-                  <textarea className="form-control mb-3" name="comment" id="comment" placeholder="book details"></textarea>
+                  <div className="form-group">
+                    <input name="edition" type="number" className="form-control" placeholder="Edition Number" />
+                  </div>
 
-                  <button className="btn btn-main" name="submit" type="submit">add</button>
+                  <div className="form-group">
+                    <input name="publisher" type="text" className="form-control" placeholder="Publisher" />
+                  </div>
+
+                  <div className="form-group">
+                    <select name="type" className="form-control">
+                      <option value="">Select Book Type</option>
+                      <option value="0">Scientific</option>
+                      <option value="1">Historic</option>
+                      <option value="2">Love Story</option>
+                      <option value="3">Children</option>
+                    </select>
+                  </div>
+
+                  <div className="form-group">
+                    <textarea className="form-control mb-3" name="desc" id="comment" placeholder="Book Details"></textarea>
+                  </div>
+
+                  <button onClick={btnClicked} className="btn btn-main" name="submit" type="button">Add</button>
                 </form>
-
               </div>
-
-
             </div>
           </div>
         </section>
-
-
-
-
       </div>
     </>
-  )
+  );
 }

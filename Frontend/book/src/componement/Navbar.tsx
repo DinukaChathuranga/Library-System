@@ -6,7 +6,7 @@ export default function Navbar() {
             <nav className="navbar navbar-expand-lg  py-4" id="navbar">
                 <div className="container">
                     <a className="navbar-brand" href="/">
-                        Mega<span>kit.</span>
+                        Library<span>-System</span>
                     </a>
 
                     <button className="navbar-toggler collapsed" type="button" data-toggle="collapse"
