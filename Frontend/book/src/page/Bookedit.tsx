@@ -58,7 +58,7 @@ export default function EditBook() {
     fetch(`https://localhost:7137/api/LibraryBook/update/${id}`, {
       method: "PUT",
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "application/json"
       },
       body: JSON.stringify(book),
     })

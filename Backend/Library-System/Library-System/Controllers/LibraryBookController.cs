@@ -56,7 +56,7 @@ namespace Library_System.Controllers
             return Ok(libraryBook);
         }
 
-        [Authorize]
+        
         [HttpPut]
         [Route("update/{bookId}")]
         public async Task<IActionResult> UpdateBook(int bookId, [FromBody] LibraryBook book)
