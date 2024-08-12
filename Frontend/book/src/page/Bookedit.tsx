@@ -22,12 +22,8 @@ export default function EditBook() {
   useEffect(() => {
     console.log("Fetching book data for ID:", id); 
 
-    fetch(`https://localhost:7137/api/LibraryBook/${id}`,
-      {
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": `Bearer ${localStorage.getItem("token")}`
-      }
+    fetch(`https://localhost:7137/api/LibraryBook/update/${id}`, {
+      method: 'GET'
     }) 
       .then((response) => {
         if (!response.ok) {

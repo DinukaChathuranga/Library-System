@@ -1,6 +1,8 @@
-
+import { useAuth } from "../Hooks/useAuth";
 
 export default function Navbar() {
+
+    const { auth, user } = useAuth();
     return (
         <header className="navigation">
             <nav className="navbar navbar-expand-lg  py-4" id="navbar">
@@ -28,9 +30,17 @@ export default function Navbar() {
                           
                         </ul>
 
-                        <form className="form-lg-inline my-2 my-md-0 ml-lg-4 text-center">
-                            <a href="/login" className="btn btn-solid-border btn-round-full">Login</a>
-                        </form>
+                        {auth ? (
+                        <div className="navbar-text ml-auto">
+                        <span>Welcome, {user?.name}!</span>
+                    </div>
+                            ) : (
+                    <form className="form-lg-inline my-2 my-md-0 ml-lg-4 text-center">
+                        <a href="/login" className="btn btn-solid-border btn-round-full">
+                        Login
+                        </a>
+                    </form>
+                    )}
                     </div>
                 </div>
             </nav>
