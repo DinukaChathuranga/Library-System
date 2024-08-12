@@ -22,7 +22,8 @@ export default function Newbook() {
     fetch("https://localhost:7137/api/LibraryBook/create", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${localStorage.getItem("token")}`
       },
       body: JSON.stringify(obj)
     }).then(_ => console.log("Created"))
@@ -62,8 +63,7 @@ export default function Newbook() {
                   <div className="form-group">
                     <input name="author" type="text" className="form-control" placeholder="Author Name" />
                   </div>
-                  <p>Add Your book image to this Drive Folder and add Url of the image to this textbox - 
-                  <a href="https://drive.google.com/drive/folders/1-iGmGShxt49gZvJjB4LyYPQKuC2jSv7E?usp=sharing" target="_blank"><u>Add Image</u></a></p>
+                  <p>Add Correct Image URL </p>
                   <div className="form-group">
                     <input name="imageurl" type="text" className="form-control" placeholder="Image-url" />
                   </div>

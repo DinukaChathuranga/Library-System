@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import Navbar from "../componement/Navbar";
 
 export default function EditBook() {
-  const { id } = useParams(); // Get the book ID from the URL
+  const { id } = useParams(); 
   const navigate = useNavigate();
   const [book, setBook] = useState({
     name: "",
@@ -15,14 +15,20 @@ export default function EditBook() {
     publisher: "",
     type: "",
   });
-  const [loading, setLoading] = useState(true); // To manage loading state
-  const [error, setError] = useState<string | null>(null); // To manage error state
+  const [loading, setLoading] = useState(true); 
+  const [error, setError] = useState<string | null>(null); 
 
   // Fetch book data when the component mounts
   useEffect(() => {
-    console.log("Fetching book data for ID:", id); // Debugging log
+    console.log("Fetching book data for ID:", id); 
 
-    fetch(`https://localhost:7137/api/LibraryBook/${id}`)
+    fetch(`https://localhost:7137/api/LibraryBook/${id}`,
+      {
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${localStorage.getItem("token")}`
+      }
+    }) 
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch book data.");
@@ -30,7 +36,7 @@ export default function EditBook() {
         return response.json();
       })
       .then((data) => {
-        console.log("Fetched book data:", data); // Debugging log
+        console.log("Fetched book data:", data); 
         setBook(data);
         setLoading(false);
       })
@@ -54,7 +60,7 @@ export default function EditBook() {
   const handleSubmit = (e: any) => {
     e.preventDefault();
 
-    console.log("Book to update:", book); // Debugging log
+    console.log("Book to update:", book); 
 
     fetch(`https://localhost:7137/api/LibraryBook/update/${id}`, {
       method: "PUT",

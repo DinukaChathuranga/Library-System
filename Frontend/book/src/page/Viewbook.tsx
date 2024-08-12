@@ -15,6 +15,10 @@ export default function Viewbook() {
   const handleDelete = (id: any) => {
     fetch(`https://localhost:7137/api/LibraryBook/delete/${id}`, {
       method: 'DELETE',
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${localStorage.getItem("token")}`
+      }
     })
       .then(response => {
         if (response.ok) {

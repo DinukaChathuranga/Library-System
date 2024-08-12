@@ -1,9 +1,14 @@
 import { useRef, useState} from "react";
+import { useAuth } from "../Hooks/useAuth";
+import { useNavigate } from "react-router-dom";
+
 
 export default function Login() {
   const formRef = useRef<HTMLFormElement>(null);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
+  // const { setToken} = useAuth();
+  const navigate = useNavigate();
 
   function btnClicked() {
     const data = new FormData(formRef.current!);
@@ -21,6 +26,8 @@ export default function Login() {
       password: password as string
     });
 
+
+    // https://localhost:7137/api/User/login?email=dinukacw&password=dinuka123
     fetch(`https://localhost:7137/api/User/login?${queryParams}`, {
       method: "POST",
     }).then(response => {
@@ -33,6 +40,9 @@ export default function Login() {
         console.log("Login successful:", data);
         setError(null);
         setSuccess("Login successful!"); 
+        // setToken(data.token);
+        localStorage.setItem( "token",data.token);
+        navigate("/");
       })
       .catch(error => {
         setError(error.message);

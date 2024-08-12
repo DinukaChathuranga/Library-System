@@ -84,6 +84,10 @@ namespace Library_System.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Token")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.HasKey("UserId");
 
                     b.ToTable("Users");

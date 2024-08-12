@@ -1,7 +1,10 @@
 using Library_System.Data;
 using Library_System.Repositories;
 using Library_System.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,13 +29,28 @@ builder.Services.AddCors(o =>
 {
     o.AddPolicy("corspolicy", build =>
     {
-        build.WithOrigins("http://localhost:5173").AllowAnyMethod().AllowAnyHeader();
+        build.WithOrigins("http://localhost:5174").AllowAnyMethod().AllowAnyHeader();
     });
 });
 
-var app = builder.Build();
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            .AddJwtBearer(options =>
+            {
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidIssuer = builder.Configuration["Jwt:Issuer"],
+                    ValidateAudience = true,
+                    ValidAudience = builder.Configuration["Jwt:Audience"],
+                    ValidateLifetime = false,
+                    IssuerSigningKey = new SymmetricSecurityKey(
+                        Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]!))
+                };
+            });
 
-// Configure the HTTP request pipeline.
+                var app = builder.Build();
+            
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -42,6 +60,8 @@ if (app.Environment.IsDevelopment())
 app.UseCors("corspolicy");
 
 app.UseHttpsRedirection();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 

@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Library_System.Migrations
 {
     [DbContext(typeof(LibraryContext))]
-    [Migration("20240810132957_Initial")]
-    partial class Initial
+    [Migration("20240812070751_Initials")]
+    partial class Initials
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -84,6 +84,10 @@ namespace Library_System.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Token")
                         .IsRequired()
                         .HasColumnType("TEXT");
 

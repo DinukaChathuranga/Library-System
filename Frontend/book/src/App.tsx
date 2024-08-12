@@ -20,7 +20,7 @@ function App() {
             <Route path="login" element={<Login />} />
             <Route path="sign" element={<Registation />} />
             <Route path="add" element={<Newbook />} />
-            <Route path="edit" element={<Bookedit />} />
+            <Route path="edit/:id" element={<Bookedit />} />
             <Route path="showall" element={<Viewbook />} />
 
 

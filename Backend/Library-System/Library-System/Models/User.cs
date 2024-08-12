@@ -8,7 +8,6 @@
         public string Email { get; set; }
         public string Password { get; set; }
         public int Isactive { get; set; }
-        public object Id { get; internal set; }
 
 
         public string Token { get; set; }

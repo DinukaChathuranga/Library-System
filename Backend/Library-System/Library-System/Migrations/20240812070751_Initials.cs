@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Library_System.Migrations
 {
     /// <inheritdoc />
-    public partial class Initial : Migration
+    public partial class Initials : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -41,7 +41,8 @@ namespace Library_System.Migrations
                     LastName = table.Column<string>(type: "TEXT", nullable: false),
                     Email = table.Column<string>(type: "TEXT", nullable: false),
                     Password = table.Column<string>(type: "TEXT", nullable: false),
-                    Isactive = table.Column<int>(type: "INTEGER", nullable: false)
+                    Isactive = table.Column<int>(type: "INTEGER", nullable: false),
+                    Token = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
