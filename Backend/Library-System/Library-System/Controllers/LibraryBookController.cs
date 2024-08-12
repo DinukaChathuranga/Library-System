@@ -3,6 +3,7 @@ using Library_System.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Net;
 using System.Threading.Tasks;
 
 namespace Library_System.Controllers
@@ -40,6 +41,22 @@ namespace Library_System.Controllers
                 return BadRequest(ex.Message);
             }
         }
+        //for update
+
+        [HttpGet]
+        [Route("getBook/{bookId}")]
+        public async Task<ActionResult<LibraryBook>> GetLibraryBook( int bookId)
+        {
+            var libraryBook = await _libraryService.GetLibraryBook(bookId);
+
+            if (libraryBook == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(libraryBook);
+        }
+
         //[Authorize]
         [HttpPut]
         [Route("update/{bookId}")]

@@ -11,5 +11,6 @@ namespace Library_System.Services
         Task<LibraryBook> CreateLibraryBook(LibraryBook book);
         Task<LibraryBook> UpdateLibraryBook(int id, LibraryBook book);
         Task DeleteLibraryBook(int libraryBookId);
+
     }
 }

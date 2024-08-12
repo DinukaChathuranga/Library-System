@@ -22,7 +22,7 @@ export default function EditBook() {
   useEffect(() => {
     console.log("Fetching book data for ID:", id); 
 
-    fetch(`https://localhost:7137/api/LibraryBook/update/${id}`, {
+    fetch(`https://localhost:7137/api/LibraryBook/getBook/${id}`, {
       method: 'GET'
     }) 
       .then((response) => {
