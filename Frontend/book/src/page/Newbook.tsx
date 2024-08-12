@@ -1,6 +1,9 @@
 import { useRef } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 
 export default function Newbook() {
+
+  const navigate = useNavigate();
   const formRef = useRef(null);
 
   function btnClicked() {
@@ -26,7 +29,19 @@ export default function Newbook() {
         "Authorization": `Bearer ${localStorage.getItem("token")}`
       },
       body: JSON.stringify(obj)
-    }).then(_ => console.log("Created"))
+    })
+    .then(response => {
+      if (response.ok) {
+        console.log("Created");
+        navigate("/");
+      } else {
+        console.error("Failed to create book");
+      }
+    })
+    .catch(error => {
+      console.error("Error creating book:", error);
+    });
+    
   }
 
   return (

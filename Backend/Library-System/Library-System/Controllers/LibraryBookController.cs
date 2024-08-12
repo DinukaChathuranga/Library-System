@@ -32,7 +32,6 @@ namespace Library_System.Controllers
         {
             try
             {
-                Console.WriteLine("Badu awa");
                 await _libraryService.CreateLibraryBook(book);
                 return Ok();
             }
@@ -41,7 +40,7 @@ namespace Library_System.Controllers
                 return BadRequest(ex.Message);
             }
         }
-        //for update
+        
 
         [HttpGet]
         [Route("getBook/{bookId}")]
@@ -57,7 +56,7 @@ namespace Library_System.Controllers
             return Ok(libraryBook);
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpPut]
         [Route("update/{bookId}")]
         public async Task<IActionResult> UpdateBook(int bookId, [FromBody] LibraryBook book)

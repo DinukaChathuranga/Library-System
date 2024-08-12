@@ -1,4 +1,6 @@
 export default function Onebook({ title, author, imageUrl, desc }: { title: string, author: string, imageUrl: string, desc:string}) {
+    console.log(imageUrl);
+
     return (
         <div className="col-lg-4 col-md-4 mb-5">
             <div className="blog-item">

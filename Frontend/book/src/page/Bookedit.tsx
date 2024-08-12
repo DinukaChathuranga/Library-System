@@ -18,7 +18,6 @@ export default function EditBook() {
   const [loading, setLoading] = useState(true); 
   const [error, setError] = useState<string | null>(null); 
 
-  // Fetch book data when the component mounts
   useEffect(() => {
     console.log("Fetching book data for ID:", id); 
 
@@ -43,7 +42,6 @@ export default function EditBook() {
       });
   }, [id]);
 
-  // Handle input changes
   const handleChange = (e: any) => {
     const { name, value } = e.target;
     setBook((prevBook) => ({
@@ -52,7 +50,6 @@ export default function EditBook() {
     }));
   };
 
-  // Handle form submission
   const handleSubmit = (e: any) => {
     e.preventDefault();
 
@@ -68,7 +65,7 @@ export default function EditBook() {
       .then((response) => {
         if (response.ok) {
           alert("Book updated successfully!");
-          navigate("/viewbooks");
+          navigate("/showall");
         } else {
           alert("Failed to update the book.");
           console.error("Error response:", response);

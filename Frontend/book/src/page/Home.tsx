@@ -27,7 +27,7 @@ export default function Home() {
                             <div className="col-lg-12">
                                 <div className="row">
                                     {books.map((book: any) => (
-                                        <Onebook key={book.id} title={book.name}  author={book.author}  imageUrl={book.imageUrl} desc={book.description}/>
+                                        <Onebook key={book.id} title={book.name}  author={book.author}  imageUrl={book.imageurl} desc={book.description}/>
                                     ))}
                                 </div>
                             </div>
